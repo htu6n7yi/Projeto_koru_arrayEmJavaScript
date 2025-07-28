@@ -25,20 +25,18 @@ const fruits = ["maçã", "banana", "laranja"];
 const moreFruits = ["uva", "kiwi"];
 const allFruits = [...fruits, ...moreFruits];
 
+function array(...arrays){
+    return [].concat(...arrays);
+}
+
 // 5. Usando spread com objetos
 const person = { name: "Maria", age: 25 };
 const employee = { ...person, id: 1001, department: "Engenharia" };
-
-function isAdult(person){
-    return {...person,
-    isAdult: person.age >= 18
-    };
-}
 
 // Testando as funções
 console.log("Soma:", sum(5, 3));
 console.log("Multiplicação:", multiply(5, 3));
 console.log("Média de 3 números:", calculateAverage(4, 6, 8));
 console.log("Média de 5 números:", calculateAverage(4, 6, 8, 10, 12));
-console.log("Frutas combinadas:", allFruits);
-console.log("Objeto funcionário:", isAdult(employee));
+console.log("Frutas combinadas:", array(fruits, moreFruits));
+console.log("Objeto funcionário:", employee);
